@@ -1,0 +1,100 @@
+.container {
+  min-height: 100vh;
+  background: #f8f4e9;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Stats Cards */
+.statsContainer {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.statCard {
+  flex: 1 1 200px;
+  background: rgba(255, 248, 231, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px 25px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+.statCard:hover {
+  transform: translateY(-5px);
+}
+.statCard h3 {
+  color: #3a86ff;
+  margin-bottom: 10px;
+}
+.statCard p {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Table Card */
+.tableCard {
+  background: rgba(255, 248, 231, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+.tableCard h2 {
+  color: #3a86ff;
+  margin-bottom: 15px;
+}
+
+/* Table */
+.studentTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+.studentTable th,
+.studentTable td {
+  padding: 12px 15px;
+  text-align: left;
+}
+.studentTable th {
+  background: rgba(58, 134, 255, 0.2);
+  color: #3a86ff;
+  font-weight: 600;
+}
+.studentTable tr {
+  transition: background 0.3s ease;
+}
+.studentTable tr:hover {
+  background: rgba(58, 134, 255, 0.1);
+}
+
+/* Buttons */
+.editBtn,
+.deleteBtn {
+  padding: 6px 12px;
+  margin-right: 6px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.editBtn {
+  background: #3a86ff;
+  color: white;
+}
+.editBtn:hover {
+  background: #2e6bd1;
+  transform: translateY(-2px);
+}
+.deleteBtn {
+  background: #ff5c5c;
+  color: white;
+}
+.deleteBtn:hover {
+  background: #e04a4a;
+  transform: translateY(-2px);
+}
