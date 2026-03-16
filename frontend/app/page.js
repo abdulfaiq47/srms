@@ -3,37 +3,13 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { useState, useEffect } from "react";
 import Navbar from "@/component/navbar/page";
-import { toast } from "react-toastify";
-
 
 export default function Home() {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
     fetchStudents();
-    getData();
   }, []);
-  const getData = async () => {
-    const res = await fetch("/api/hello");
-    const data = await res.json();
-    if (data) {
-      toast.success(data.message);
-      console.log(data);
-    } else {
-      toast.error("Failed to fetch data.");
-    }
-    setMsg(data.message);
-  };
-
-  // const hee = async (roll) => {
-  //   try {
-  //     const res = await fetch("/api/hello");
-  //     const data = await res.json();
-  //     console.log(data);
-  //   } catch (err) {
-  //     console.error("Failed to fetch students:", err);
-  //   }
-  // };
 
   const fetchStudents = async () => {
     try {
