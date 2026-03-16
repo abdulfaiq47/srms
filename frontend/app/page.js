@@ -13,7 +13,7 @@ export default function Home() {
 
   const fetchStudents = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:5000/");
+      const res = await fetch("https://srms-od8w.vercel.app/");
       const data = await res.json();
       setStudents(data.students);
     } catch (err) {
