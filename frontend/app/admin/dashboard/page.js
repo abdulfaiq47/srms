@@ -1,12 +1,12 @@
 "use client";
-import React, { useEffect, useState, Suspense } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./page.module.css";
 import Navbr from "@/component/navbr/page";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
 
-const DashboardContent = () => {
+const Dashboard = () => {
   const [stude, setstude] = useState([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
@@ -90,10 +90,4 @@ const DashboardContent = () => {
   );
 };
 
-export default function Dashboard() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <DashboardContent />
-    </Suspense>
-  );
-}
+export default Dashboard;

@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
 import style from "./page.module.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Navbr from "@/component/navbr/page";
 import { toast } from "react-toastify";
 
-function Add() {
+function AddContent() {
   const [data, setdata] = useState({
     name: "",
     roll: "",
@@ -103,4 +103,11 @@ function Add() {
   );
 }
 
-export default Add;
+export default function Add() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AddContent />
+    </Suspense>
+  );
+}
+

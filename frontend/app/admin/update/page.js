@@ -14,7 +14,7 @@ const UpdateContent = () => {
     roll: roll || "",
     marks: 0,
   });
-  const [studentinfo, setStudentinfo] = useState({});
+  const [studentinfo, setStudentinfo] = useState({})
 
   const [result, setresult] = useState();
 
@@ -38,11 +38,14 @@ const UpdateContent = () => {
     if (result.status === "success") {
       toast.success("Data updated successfully!");
       const stud = result["data"][0];
-      setStudentinfo(stud);
+      setStudentinfo(stud)
     } else {
       toast.error("Failed to update data.");
-      setStudentinfo({});
+      setStudentinfo({})
     }
+
+
+    
   };
 
   return (
@@ -99,6 +102,8 @@ const UpdateContent = () => {
             <p>Name: {studentinfo.name}</p>
             <p>Roll: {studentinfo.roll}</p>
             <p>Marks: {studentinfo.marks}</p>
+            
+           
           </div>
         </div>
       )}
@@ -113,3 +118,4 @@ export default function Update() {
     </Suspense>
   );
 }
+

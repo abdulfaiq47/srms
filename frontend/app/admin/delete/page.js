@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useState, useEffect, Suspense } from "react";
+import { useState, Suspense } from "react";
 import { toast } from "react-toastify";
 import Navbr from "@/component/navbr/page";
 import styles from "./page.module.css";
@@ -9,21 +9,12 @@ import Image from "next/image";
 
 const DeleteContent = () => {
   const searchparam = useSearchParams();
+  const roll = searchparam.get("roll");
   const [data, setdata] = useState({
     roll: roll || "",
   });
-   const [roll, setRoll] = useState("");
   const [result, setresult] = useState();
   const [studentinfo, setStudentinfo] = useState({});
-  
-  useEffect(() => {
-    const r = searchparam.get("roll");
-    if (r){setRoll(r)};
-  }, [])
-
-    
-
-  
 
   const handlesub = async (e) => {
     e.preventDefault();
