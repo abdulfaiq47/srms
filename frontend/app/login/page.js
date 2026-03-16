@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { useSearchParams } from "next/navigation";
 
-const Login = () => {
+const LoginContent = () => {
   const router = useRouter();
   const shown = useRef(false);
   const searchParams = useSearchParams();
@@ -94,4 +94,10 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default function Login() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LoginContent />
+    </Suspense>
+  );
+}

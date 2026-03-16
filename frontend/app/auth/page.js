@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import { useSearchParams } from "next/navigation";
 
-const Admin = () => {
+const AdminContent = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const shown = useRef(false);
@@ -89,4 +89,11 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default function Admin() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AdminContent />
+    </Suspense>
+   );
+
+}
