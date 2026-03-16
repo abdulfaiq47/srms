@@ -25,7 +25,7 @@ const UpdateContent = () => {
   const handlesub = async (e) => {
     e.preventDefault();
 
-    const fet = await fetch("http://127.0.0.1:5000/update", {
+    const fet = await fetch("https://srms-od8w.vercel.app/update", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

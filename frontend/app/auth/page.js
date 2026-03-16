@@ -34,7 +34,7 @@ const AdminContent = () => {
     e.preventDefault();
     console.log(data);
 
-    const fet = await fetch("http://127.0.0.1:5000/auth", {
+    const fet = await fetch("https://srms-od8w.vercel.app/auth", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

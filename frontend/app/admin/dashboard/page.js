@@ -14,7 +14,7 @@ const Dashboard = () => {
   // Fetch stude from Flask API
   const fetchstude = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:5000/"); 
+      const res = await fetch("https://srms-od8w.vercel.app/"); 
       const data = await res.json();
       setstude(data.students);
     } catch (error) {

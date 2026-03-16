@@ -19,7 +19,7 @@ const DeleteContent = () => {
   const handlesub = async (e) => {
     e.preventDefault();
 
-    const fet = await fetch("http://127.0.0.1:5000/delete", {
+    const fet = await fetch("https://srms-od8w.vercel.app/delete", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

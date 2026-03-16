@@ -18,7 +18,7 @@ const Studentdashboard = () => {
 
     const realId = student_id.slice(1, -1);
     // Fetch student data from backend
-    fetch(`http://127.0.0.1:5000/student/${realId}`)
+    fetch(`https://srms-od8w.vercel.app/student/${realId}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "success") {
