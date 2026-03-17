@@ -4,7 +4,7 @@ from flask_cors import CORS
 import os
 from supabase import create_client, Client
 from dotenv import load_dotenv
-from datetime import datetime
+from datetime import date
 
 load_dotenv()
 
@@ -212,29 +212,54 @@ def delete():
             "data": responce.data,
         }
     )
+
+
 # Attendence==========================================
-@app.route("/attendence", methods=["POST"])
-def add_attendence():
+@app.route("/attendance", methods=["POST"])
+def add_attendance():
     data = request.json
 
-    roll = data["roll"]
-    date = data["date"]
-    status = data["status"]
+    roll = data.get("roll")
+    status = data.get("status")
+
+    if not roll or not status:
+        return jsonify({"message": "Missing data"}), 400
+
+    if status not in ["present", "absent"]:
+        return jsonify({"message": "Invalid status"}), 400
 
     today = str(date.today())
-    check = supabase.table("students").select("*").eq("roll", roll).eq("date", today).execute()
+    check = supabase.table("students").select("*").eq("roll", roll).execute()
     if check.data is None or len(check.data) == 0:
         return (
             jsonify({"status": "error", "message": "Student not found", "roll": roll}),
             404,
         )
+    check_attendance = (
+        supabase.table("attendance")
+        .select("*")
+        .eq("s_roll", roll)
+        .eq("date", today)
+        .execute()
+    )
+    if check_attendance.data and len(check_attendance.data) > 0:
+        return (
+            jsonify(
+                {
+                    "status": "error",
+                    "message": "Attendance already added for today",
+                    "roll": roll,
+                }
+            ),
+            400,
+        )
 
     responce = (
-        supabase.table("attendence")
+        supabase.table("attendance")
         .insert(
             {
-                "roll": roll,
-                "date": date,
+                "s_roll": roll,
+                "date": today,
                 "status": status,
             }
         )
@@ -245,7 +270,11 @@ def add_attendence():
         return jsonify({"status": "error", "message": "Failed to add attendance"}), 500
 
     return jsonify(
-        {"status": "success", "message": "Today's Attendance Added", "data": responce.data}
+        {
+            "status": "success",
+            "message": "Today's Attendance Added",
+            "data": responce.data,
+        }
     )
 
 

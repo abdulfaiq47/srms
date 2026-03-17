@@ -1,0 +1,119 @@
+.container {
+    min-height: 150vh;
+    background: linear-gradient(135deg, #fff8e7, #eef4ff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 30px;
+}
+
+/* Card */
+.card {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    text-align: center;
+    color: #3a86ff;
+    margin-bottom: 20px;
+
+}
+
+.titleRow {
+    text-align: center;
+    color: #3a86ff;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+/* Form */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form input,
+.form select {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.form input:focus,
+.form select:focus {
+    border-color: #3a86ff;
+}
+
+/* Button */
+.submit {
+    background: #3a86ff;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit:hover {
+    transform: scale(1.05);
+}
+
+/* Records */
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    margin-top: 10px;
+}
+
+.present {
+    color: green;
+    font-weight: bold;
+}
+
+.absent {
+    color: red;
+    font-weight: bold;
+}
+
+.empty {
+    text-align: center;
+    color: gray;
+}
+
+/* Reset Button (Modern Danger Style) */
+.resetBtn {
+    background: linear-gradient(135deg, #ff4d4d, #ff6b6b);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(255, 77, 77, 0.3);
+}
+
+.resetBtn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 18px rgba(255, 77, 77, 0.5);
+}
+
+.resetBtn:active {
+    transform: scale(0.95);
+}

@@ -5,13 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const Navbr = () => {
-
   const pathname = usePathname();
 
   return (
     <div className={style.secnav}>
       <ul>
-
         <li>
           <Link
             className={pathname === "/admin/add" ? style.active : ""}
@@ -32,6 +30,15 @@ const Navbr = () => {
 
         <li>
           <Link
+            className={pathname === "/admin/attendance" ? style.active : ""}
+            href="/admin/attendance"
+          >
+            Attendance
+          </Link>
+        </li>
+
+        <li>
+          <Link
             className={pathname === "/admin/delete" ? style.active : ""}
             href="/admin/delete"
           >
@@ -47,7 +54,6 @@ const Navbr = () => {
             Update
           </Link>
         </li>
-
       </ul>
     </div>
   );
